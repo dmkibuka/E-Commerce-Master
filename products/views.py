@@ -7,7 +7,7 @@ from .models import Product
 
 
 class ProductFeaturedListView(ListView):
-    template_name = "products/list.html"
+    template_name = "product/list.html"
 
     def get_queryset(self, *args, **kwargs):
         request = self.request
@@ -16,7 +16,7 @@ class ProductFeaturedListView(ListView):
 
 class ProductFeaturedDetailView(DetailView):
     queryset = Product.objects.all().featured()
-    template_name = "products/featured-detail.html"
+    template_name = "product/featured-detail.html"
 
     # def get_queryset(self, *args, **kwargs):
     #     request = self.request
@@ -25,7 +25,7 @@ class ProductFeaturedDetailView(DetailView):
 
 
 class ProductListView(ListView):
-    template_name = "products/list.html"
+    template_name = "product/list.html"
 
     # def get_context_data(self, *args, **kwargs):
     #     context = super(ProductListView, self).get_context_data(*args, **kwargs)
@@ -42,13 +42,13 @@ def product_list_view(request):
     context = {
         'object_list': queryset
     }
-    return render(request, "products/list.html", context)
+    return render(request, "product/list.html", context)
 
 
 
 class ProductDetailSlugView(DetailView):
     queryset = Product.objects.all()
-    template_name = "products/detail.html"
+    template_name = "product/detail.html"
 
     def get_object(self, *args, **kwargs):
         request = self.request
@@ -69,7 +69,7 @@ class ProductDetailSlugView(DetailView):
 
 class ProductDetailView(DetailView):
     #queryset = Product.objects.all()
-    template_name = "products/detail.html"
+    template_name = "product/detail.html"
 
     def get_context_data(self, *args, **kwargs):
         context = super(ProductDetailView, self).get_context_data(*args, **kwargs)
@@ -117,4 +117,4 @@ def product_detail_view(request, pk=None, *args, **kwargs):
     context = {
         'object': instance
     }
-    return render(request, "products/detail.html", context)
+    return render(request, "product/detail.html", context)
