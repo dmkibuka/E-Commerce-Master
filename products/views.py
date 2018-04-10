@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 
 
 from .models import Product
-form cart.models import Cart
+from carts.models import Cart
 
 
 class ProductFeaturedListView(ListView):

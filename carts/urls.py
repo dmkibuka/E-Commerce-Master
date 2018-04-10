@@ -5,6 +5,9 @@ from .views import (
         cart_update,
         )
 
+app_name = 'carts'
+
+
 urlpatterns = [
     path('', cart_home, name='home'),
     path('update/', cart_update, name='update'),
