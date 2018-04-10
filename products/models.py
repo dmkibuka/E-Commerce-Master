@@ -1,6 +1,7 @@
 import random
 import os
 from django.db import models
+from django.db.models import Q
 from django.db.models.signals import pre_save, post_save
 from django.urls import reverse
 
@@ -54,7 +55,9 @@ class ProductManager(models.Manager):
             return qs.first()
         return None
 
-
+    def search(self, query):
+        return self.get_queryset().active().search(query)
+        
 
 class Product(models.Model):
     title           = models.CharField(max_length=120)
