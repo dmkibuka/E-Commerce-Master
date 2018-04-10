@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # CUSTOM_INSTALLED_APPS
     'accounts',
     'products',
+    'search',
 
 ]
 
