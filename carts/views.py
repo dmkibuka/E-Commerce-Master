@@ -83,5 +83,5 @@ def checkout_home(request):
     }
     return render(request, "cart/checkout.html", context)
 
-    def checkout_done_view(request):
+def checkout_done_view(request):
     return render(request, "cart/checkout-done.html", {})
