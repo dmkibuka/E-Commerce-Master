@@ -6,6 +6,7 @@ from billing.models import BillingProfile
 from .forms import AddressForm
 from .models import Address
 
+
 def checkout_address_create_view(request):
     form = AddressForm(request.POST or None)
     context = {
@@ -19,6 +20,7 @@ def checkout_address_create_view(request):
         instance = form.save(commit=False)
         billing_profile, billing_profile_created = BillingProfile.objects.new_or_get(request)
         if billing_profile is not None:
+            address_type = request.POST.get('address_type', 'shipping')
             instance.billing_profile = billing_profile
             instance.address_type = address_type
             instance.save()
